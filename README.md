@@ -1,183 +1,203 @@
-# Online Matrimony & Matchmaking Management System
+# Online House Rental & Tenant Management System
 
 ## 📌 Project Overview
 
-The **Online Matrimony & Matchmaking Management System** is a full-stack web application designed to digitalize and streamline the matrimonial process. The platform enables users to register, create profiles, search for suitable matches, send requests, and manage matchmaking interactions securely and efficiently.
+The **Online House Rental & Tenant Management System** is a full-stack web application that provides a digital platform for property owners to list rental houses and for tenants to search, view, and request bookings for available properties. The system streamlines the rental process by automating property management, booking workflows, and tenant–owner interactions.
 
-This project is developed as an academic capstone and follows **industry-oriented full-stack development practices**.
-
----
-
-## 🎯 Problem Statement
-
-Traditional matrimonial systems rely heavily on manual processes, intermediaries, and unstructured data handling. This often results in inefficiency, lack of transparency, privacy concerns, and limited filtering capabilities.
-
-The objective of this project is to provide a **secure, scalable, and user-friendly online platform** that simplifies matchmaking through structured data management and modern web technologies.
+This project is developed as an academic capstone and follows real-world full-stack application architecture.
 
 ---
 
-## 💡 Proposed Solution
+## 🎯 Objective
 
-The system provides:
+To develop a secure, scalable, and user-friendly rental management system where:
 
-* Secure authentication and authorization
-* Structured user profile and match management
-* Match request handling with status tracking
-* Role-based access control
-* Reliable backend architecture with database integration
+* Property owners can manage rental listings and tenant requests
+* Tenants can search and book rental properties efficiently
+* The system ensures proper validation, role-based access, and data integrity
 
 ---
 
-## 🚀 Key Features
+## 👥 User Roles
 
-### 👤 User Module
+### 🏠 Owner
 
-* User registration and login using JWT authentication
-* Profile creation and profile management
-* Search and filter potential matches
-* Send and receive matchmaking requests
-* View match/request status
+* Add new property listings
+* Update and manage listed properties
+* View tenant booking requests
+* Approve or reject booking requests
+* View tenant details for approved bookings
 
-### 🛡️ Management Module
+### 👤 Tenant
 
-* Manage user and match data
-* Monitor requests and system activity
-* Ensure data validation and security
-* Handle errors and access control
+* Browse available rental properties
+* View detailed property information
+* Search and filter properties
+* Submit booking requests
+* Track booking request status
 
----
+### 🛡️ Admin (Optional)
 
-## 🛠️ Tech Stack
-
-### Frontend
-
-* HTML
-* CSS
-* TypeScript
-
-### Backend
-
-* Node.js
-* Express.js
-* TypeScript
-* RESTful API architecture
-* JWT-based authentication
-
-### Database
-
-* MySQL
-* Structured relational schema for users and match records
-
-### Tools & Libraries
-
-* bcryptjs – password hashing
-* mysql2 – database connectivity
-* multer – file upload handling
-* express-validator – input validation
-* dotenv – environment variable management
-* nodemon & ts-node – development utilities
+* Monitor users and property listings
+* View basic system analytics
+* Oversee platform activities
 
 ---
 
-## 🧩 System Architecture
+## 🏘️ Property Listing & Search
 
-The application follows a **Client–Server Architecture** and implements the **MVC (Model–View–Controller) design pattern**:
+### Property Details Include:
 
-* **Controllers** handle business logic and request processing
-* **Models** manage database interaction and schemas
-* **Routes** define RESTful endpoints
-* **Middleware** manages authentication, validation, and error handling
+* Property photos (stored as file paths or URLs)
+* Rent amount
+* Location
+* Amenities (AC, Wi-Fi, Parking, etc.)
 
-This architecture improves maintainability, scalability, and security.
+### Tenant Features:
 
----
+* Browse all available properties
+* Search and filter properties by:
 
-## 📂 Project Folder Structure
+  * Location
+  * Budget
+  * Amenities
 
-```
-Online-Matrimony-Management-System
-│
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── server.ts
-│
-├── frontend/
-│   ├── pages/
-│   ├── styles/
-│   └── scripts/
-│
-├── README.md
-```
+### UI Pages:
+
+* **Property Listing Page** – Displays all available properties
+* **Property Details Page** – Shows property details, images, and booking option
 
 ---
 
-## ⚙️ Installation & Setup
+## 📑 Tenant Management & Booking
 
-1. Clone the repository:
+* Tenants can submit booking requests for selected properties
+* Owners can approve or reject booking requests
+* Tenants can view booking status:
 
-   ```
-   git clone https://github.com/SHemanth0112/Online-House-Rental-Tenant-Management-System.git
-   ```
+  * Pending
+  * Approved
+  * Rejected
+* Owners can view tenant details for approved bookings
 
-2. Navigate to the backend directory:
+### UI Pages:
 
-   ```
-   cd backend
-   ```
-
-3. Install dependencies:
-
-   ```
-   npm install
-   ```
-
-4. Configure environment variables:
-
-   * MySQL database credentials
-   * JWT secret key
-
-5. Start the development server:
-
-   ```
-   npm run dev
-   ```
+* **Tenant Booking Page** – Submit booking requests
+* **Owner Dashboard** – Manage properties and tenant bookings
 
 ---
 
-## 🧪 Testing & Validation
+## 🖥️ Frontend (Angular 18)
 
-* API endpoints were tested using structured requests
-* Input validation and authentication checks were implemented
-* Error handling middleware ensures system stability
+* Developed using **Angular 18**
+* Uses **Angular Material** for UI components
+* Modular and component-based architecture
+
+### Key Components:
+
+* `PropertyListComponent` – Display all properties
+* `PropertyDetailsComponent` – Show property details and booking option
+* `BookingRequestComponent` – Submit booking requests
+* `OwnerDashboardComponent` – Manage properties and tenant requests
+
+### Application Routes:
+
+| Path                   | Component                | Description                  |
+| ---------------------- | ------------------------ | ---------------------------- |
+| `/properties`          | PropertyListComponent    | Browse all properties        |
+| `/properties/:id`      | PropertyDetailsComponent | View property details        |
+| `/properties/:id/book` | BookingRequestComponent  | Submit booking request       |
+| `/owner/dashboard`     | OwnerDashboardComponent  | Manage properties & bookings |
 
 ---
 
-## 🔮 Future Enhancements
+## 🛠️ Backend (Node.js + TypeScript)
 
-* AI-based matchmaking recommendations
-* In-app chat system
-* Profile verification mechanism
-* Payment gateway for premium features
-* Mobile application support
+* Node.js with **TypeScript**
+* Express.js RESTful APIs
+* MySQL database integration
+* Input validation and exception handling
+* Role-based API access control
+
+---
+
+## 🗄️ Database Structure (MySQL)
+
+### Properties Table
+
+* `id`
+* `owner_id`
+* `title`
+* `description`
+* `rent`
+* `location`
+* `amenities`
+* `photos`
+* `created_at`
+
+### Bookings Table
+
+* `id`
+* `property_id`
+* `tenant_id`
+* `status` (Pending / Approved / Rejected)
+* `request_time`
+
+> A simple relational mapping is maintained between **Properties** and **Bookings** tables.
+
+---
+
+## ✅ Validation Rules
+
+* Property title and location must not be empty
+* Rent amount must be greater than zero
+* Booking requests must contain valid property and tenant data
+* Booking status must be one of:
+
+  * Pending
+  * Approved
+  * Rejected
+* All validations ensure data integrity and correct workflow
+
+---
+
+## 🔐 Role-Based Access Control
+
+* Implemented using **Angular Route Guards**
+* Access restrictions:
+
+  * **Tenant** → Property browsing and booking features
+  * **Owner** → Property and booking management
+  * **Admin** → System monitoring (if enabled)
+* Unauthorized access redirects users to login or access-denied pages
+
+---
+
+## ⚠️ Exception Handling
+
+* Graceful error handling in frontend and backend
+* Meaningful error messages displayed in the UI
+* Server-side error logging for debugging
+* Proper HTTP status codes for all API responses
+
+---
+
+## 🔔 Notifications & Status Updates
+
+* Success notifications on booking submission
+* Real-time booking status updates for tenants upon owner action
 
 ---
 
 ## 👥 Team Contribution (Team Size: 4)
 
-* Backend and frontend development were completed collaboratively.
-* System design analysis and documentation were handled as part of team responsibilities.
-* UI/UX refinements, validation improvements, and testing were contributed by team members.
-* Deployment readiness and project review preparation were jointly managed.
-
-This collaborative approach ensured timely delivery and effective implementation of the project.
+* Backend and frontend development were carried out collaboratively.
+* Functional analysis, validation logic, and documentation were handled as shared responsibilities.
+* UI/UX refinements, testing, and workflow verification were jointly managed.
+* Deployment readiness and project review preparation were completed as a team.
 
 ---
 
 ## 📜 Conclusion
 
-The Online Matrimony & Matchmaking Management System demonstrates a practical implementation of full-stack web development concepts. The project addresses real-world challenges in matrimonial services by providing a secure, scalable, and efficient digital solution aligned with academic and industry standards.
-
+The Online House Rental & Tenant Management System provides an efficient digital solution for managing rental properties and tenant bookings. The project demonstrates practical implementation of full-stack development concepts, role-based access control, and real-world rental workflows aligned with academic and industry standards.
